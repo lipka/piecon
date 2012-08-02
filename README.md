@@ -30,6 +30,19 @@ Piecon.setOptions({
 });
 ```
 
+### Browser Support
+
+Piecon has been tested to work completely in the following browsers (older versions may be supported, but haven't been tested):
+
+* Chrome 15+
+* Firefox 9+
+* Opera 11+
+
+Currently the library falls back to title updates for the following browsers:
+
+* Internet Explorer 9
+* Safari 5
+
 ## License
 
 Licensed under the [MIT license](http://en.wikipedia.org/wiki/MIT_License).
