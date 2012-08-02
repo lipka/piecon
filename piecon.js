@@ -20,7 +20,7 @@
         shadow: '#fff',
         fallback: false
     };
-    
+
     var ua = (function () {
         var agent = navigator.userAgent.toLowerCase();
         return function (browser) {
@@ -35,20 +35,20 @@
         safari: ua('safari') && !ua('chrome'),
         mozilla: ua('mozilla') && !ua('chrome') && !ua('safari')
     };
-    
-    var getFaviconTag = function(){        
+
+    var getFaviconTag = function() {
         var links = document.getElementsByTagName('link');
-        
+
         for (var i = 0; i < links.length; i++) {
             if ((links[i].getAttribute('rel') || '').match(/\bicon\b/)) {
                 return links[i];
             }
         }
-        
+
         return false;
     };
-    
-    var removeFaviconTag = function(){
+
+    var removeFaviconTag = function() {
         var links = document.getElementsByTagName('link');
         var head = document.getElementsByTagName('head')[0];
 
@@ -59,9 +59,9 @@
         }
     };
 
-    var setFaviconTag = function(url){
+    var setFaviconTag = function(url) {
         removeFaviconTag();
-        
+
         var link = document.createElement('link');
         link.type = 'image/x-icon';
         link.rel = 'icon';
@@ -69,18 +69,18 @@
 
         document.getElementsByTagName('head')[0].appendChild(link);
     };
-    
-    var getCanvas = function (){
+
+    var getCanvas = function () {
         if (!canvas) {
             canvas = document.createElement("canvas");
             canvas.width = 16;
             canvas.height = 16;
         }
-        
+
         return canvas;
     };
-    
-    var drawFavicon = function(percentage) {        
+
+    var drawFavicon = function(percentage) {
         var canvas = getCanvas();
         var context = canvas.getContext("2d");
         var percentage = percentage || 0;
@@ -103,7 +103,7 @@
             context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, 0, Math.PI * 2, false);
             context.fillStyle = options.background;
             context.fill();
-            
+
             // Draw pie
             if (percentage > 0) {
                 context.beginPath();
@@ -111,23 +111,23 @@
                 context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, (-0.5) * Math.PI, (-0.5 + 2 * percentage / 100) * Math.PI, false);
                 context.lineTo(canvas.width / 2, canvas.height / 2);
                 context.fillStyle = options.color;
-                context.fill();    
+                context.fill();
             }
 
             if (context) {
                 setFaviconTag(canvas.toDataURL());
             }
         };
-        
+
         // allow cross origin resource requests if the image is not a data:uri
         // as detailed here: https://github.com/mrdoob/three.js/issues/1305
         if (!src.match(/^data/)) {
             faviconImage.crossOrigin = 'anonymous';
         }
-        
+
         faviconImage.src = src;
     };
-    
+
     var updateTitle = function(percentage) {
         if (options.fallback) {
             if (percentage > 0) {
@@ -137,17 +137,17 @@
             }
         }
     };
-    
+
     Piecon.setOptions = function(custom) {
-        options = {};        
-        
+        options = {};
+
         for (var key in defaults){
             options[key] = custom.hasOwnProperty(key) ? custom[key] : defaults[key];
         }
 
         return this;
     };
-    
+
     Piecon.setProgress = function(percentage) {
         if (!originalTitle) {
             originalTitle = document.title;
@@ -168,10 +168,10 @@
 
             return drawFavicon(percentage);
         }
-        
+
         return false;
     };
-    
+
     Piecon.reset = function() {
         if (originalTitle) {
             document.title = originalTitle;
@@ -182,7 +182,7 @@
             setFaviconTag(currentFavicon);
         }
     };
-    
+
     Piecon.setOptions(defaults);
     window.Piecon = Piecon;
 })();
