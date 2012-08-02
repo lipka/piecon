@@ -4,7 +4,7 @@ Pie charts in your favicon!
 
 A tiny javascript library for dynamically generating pie charts in your favicons.
 
-<img src="https://github.com/lipka/piecon/blob/master/example/screenshot.png?raw=true">
+<p align="center"><img src="https://github.com/lipka/piecon/blob/master/example/screenshot.png?raw=true"></p>
 
 ## Documentation
 
