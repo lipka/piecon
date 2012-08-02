@@ -6,6 +6,8 @@ A tiny javascript library for dynamically generating pie charts in your favicons
 
 <img src="https://github.com/lipka/piecon/blob/master/example/screenshot.png?raw=true">
 
+See the [live demo here](http://lipka.github.com/piecon/).
+
 ## Documentation
 
 ### Basic usage
