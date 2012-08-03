@@ -2,6 +2,7 @@
 <!doctype html>
 <head>
   <title>Piecon / Pie charts in your favicon!</title>
+  <meta charset="UTF-8">
   <link rel="icon" href="favicon.ico" />
   <script src="piecon.min.js"></script>
   <script>
@@ -10,14 +11,130 @@
     Piecon.setOptions({fallback: 'force'});
     var i = setInterval(function(){
       if (++count > 100) { Piecon.reset(); clearInterval(i); return false; }
-      Piecon.setProgress(count); 
+      Piecon.setProgress(count);
     }, 1000);
   })();
   </script>
+
+<style>html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body{
+    font-family: helvetica, arial, freesans, clean, sans-serif;
+    color: #333;
+    background-color: #fff;
+    border-color: #999999;
+    border-width: 2px;
+    line-height: 1.5;
+    margin: 2em 3em;
+    text-align:left;
+    padding: 0 100px 0 100px;
+}
+
+pre{
+    background-color: #eee;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: auto;
+}
+code{
+    background-color: #eee;
+    padding: 1px 3px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+li p{
+    margin: 0.3em;
+}
+ul > li{
+    list-style-type: disc;
+}
+a:link, a:visited{
+    color: #33e;
+    text-decoration: none;
+}
+a:hover{
+    color: #00f;
+    text-shadow:1px 1px 2px #ccf;
+    text-decoration:underline;
+}
+h1{
+    color: #999;
+    font-weight: 400;
+    font-size: 36px;
+}
+h2{
+    border-bottom: 1px dotted #aaa;
+    margin-bottom: 1em;
+    color: #333;
+    font-size: 30px;
+}
+h3{
+    color: #666;
+    font-size: 24px;
+}
+h4 {
+    font-size: 21px;
+}
+h5 {
+    font-size: 18px;
+}
+.shadow{
+    -webkit-box-shadow:0 5px 15px #000;
+    -moz-box-shadow:0 5px 15px #000;
+    box-shadow:0 5px 15px #000;
+}
+</style>
 </head>
-<body>
-  <div id="container">
-    <h1>Piecon</h1>
-    <p>A <a href="https://github.com/lipka">@lipka</a> production</p>
-  </div>
-</body>
+<body><h1>Piecon</h1>
+<p>Pie charts in your favicon!</p>
+<p>A tiny javascript library for dynamically generating pie charts in your favicons.</p>
+<p align="center"><img src="https://github.com/lipka/piecon/blob/master/example/screenshot.png?raw=true"></p>
+
+<p>See the <a href="http://lipka.github.com/piecon/">live demo here</a>.</p>
+<h2>Documentation</h2>
+<h3>Basic usage</h3>
+<pre><code>
+Piecon.setProgress(12);
+Piecon.setProgress(25);
+...
+Piecon.reset();
+</pre>
+
+<p></code></p>
+<h3>Options</h3>
+<pre><code>
+Piecon.setOptions({
+  color: '#ff0084', // Pie chart color
+  background: '#bbb', // Empty pie chart color
+  shadow: '#fff', // Outer ring color
+  fallback: 'false' // Toggles displaying percentage in the title bar (possible values - true, false, 'force')
+});
+</pre>
+
+<p></code></p>
+<h3>Browser Support</h3>
+<p>Piecon has been tested to work completely in the following browsers (older versions may be supported, but haven't been tested):</p>
+<ul>
+<li>Chrome 15+</li>
+<li>Firefox 9+</li>
+<li>Opera 11+</li>
+</ul>
+<p>Currently the library falls back to title updates for the following browsers:</p>
+<ul>
+<li>Internet Explorer 9</li>
+<li>Safari 5</li>
+</ul>
+<h2>License</h2>
+<p>Licensed under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.</p>
+<h2>Credits</h2>
+<p>Piecon was inspired by <a href="https://github.com/tommoor/tinycon">Tinycon</a>.</p>
+<h2>An Lipka project</h2>
+<p>Made by yours truly - <a href="https://github.com/lipka">@lipka</a>.</p></body></html>
