@@ -26,7 +26,7 @@ Piecon.setOptions({
   color: '#ff0084', // Pie chart color
   background: '#bbb', // Empty pie chart color
   shadow: '#fff', // Outer ring color
-  fallback: 'false' // Toggles displaying percentage in the title bar (possible values - true, false, 'force')
+  fallback: false // Toggles displaying percentage in the title bar (possible values - true, false, 'force')
 });
 ```
 
