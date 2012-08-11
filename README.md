@@ -2,7 +2,7 @@
 
 Pie charts in your favicon!
 
-A tiny javascript library for dynamically generating pie charts in your favicons.
+A tiny javascript library for dynamically generating progress pie charts in your favicons.
 
 <p align="center"><img src="https://github.com/lipka/piecon/blob/master/example/screenshot.png?raw=true"></p>
 

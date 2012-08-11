@@ -1,17 +1,16 @@
-
 <!doctype html>
 <head>
   <title>Piecon / Pie charts in your favicon!</title>
   <link rel="icon" href="favicon.ico" />
-  <script src="piecon.min.js"></script>
+  <script src="piecon.js"></script>
   <script>
   (function(){
     var count = 0;
     Piecon.setOptions({fallback: 'force'});
     var i = setInterval(function(){
       if (++count > 100) { Piecon.reset(); clearInterval(i); return false; }
-      Piecon.setProgress(count); 
-    }, 1000);
+      Piecon.setProgress(count);
+    }, 250);
   })();
   </script>
 </head>
