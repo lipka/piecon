@@ -41,7 +41,7 @@ Piecon has been tested to work completely in the following browsers (older versi
 Currently the library falls back to title updates for the following browsers:
 
 * Internet Explorer 9
-* Safari 5
+* Safari 5+
 
 ## License
 
