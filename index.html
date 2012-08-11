@@ -12,7 +12,7 @@
     var i = setInterval(function(){
       if (++count > 100) { Piecon.reset(); clearInterval(i); return false; }
       Piecon.setProgress(count);
-    }, 1000);
+    }, 250);
   })();
   </script>
 
@@ -95,7 +95,7 @@ h5 {
 </head>
 <body><h1>Piecon</h1>
 <p>Pie charts in your favicon!</p>
-<p>A tiny javascript library for dynamically generating pie charts in your favicons.</p>
+<p>A tiny javascript library for dynamically generating progress pie charts in your favicons.</p>
 <p align="center"><img src="https://github.com/lipka/piecon/blob/master/example/screenshot.png?raw=true"></p>
 
 <p>Look up at your tabs for the live demo!</p>
@@ -128,7 +128,7 @@ Piecon.setOptions({
 <p>Currently the library falls back to title updates for the following browsers:</p>
 <ul>
 <li>Internet Explorer 9</li>
-<li>Safari 5</li>
+<li>Safari 5+</li>
 </ul>
 <h2>License</h2>
 <p>Licensed under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.</p>
