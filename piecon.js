@@ -129,12 +129,10 @@
     };
 
     var updateTitle = function(percentage) {
-        if (options.fallback) {
-            if (percentage > 0) {
-                document.title = '(' + percentage + '%) ' + originalTitle;
-            } else {
-                document.title = originalTitle;
-            }
+        if (percentage > 0) {
+            document.title = '(' + percentage + '%) ' + originalTitle;
+        } else {
+            document.title = originalTitle;
         }
     };
 
