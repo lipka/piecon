@@ -21,12 +21,10 @@
         fallback: false
     };
 
-    var ua = (function () {
+    var ua = function(browser) {
         var agent = navigator.userAgent.toLowerCase();
-        return function (browser) {
-            return agent.indexOf(browser) !== -1;
-        };
-    }());
+        return agent.indexOf(browser) !== -1;
+    };
 
     var browser = {
         ie: ua('msie'),
