@@ -40,7 +40,7 @@
         var links = document.getElementsByTagName('link');
 
         for (var i = 0, l = links.length; i < l; i++) {
-            if ((links[i].getAttribute('rel') || '').match(/\bicon\b/)) {
+            if (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon') {
                 return links[i];
             }
         }
@@ -53,7 +53,7 @@
         var head = document.getElementsByTagName('head')[0];
 
         for (var i = 0, l = links.length; i < l; i++) {
-            if (typeof(links[i]) !== 'undefined' && links[i].getAttribute('rel') === 'icon') {
+            if (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon') {
                 head.removeChild(links[i]);
             }
         }
@@ -88,33 +88,33 @@
 
         var faviconImage = new Image();
         faviconImage.onload = function() {
-            context.clearRect(0, 0, 16, 16);
+            if (context) {
+                context.clearRect(0, 0, 16, 16);
 
-            // Draw shadow
-            context.beginPath();
-            context.moveTo(canvas.width / 2, canvas.height / 2);
-            context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2), 0, Math.PI * 2, false);
-            context.fillStyle = options.shadow;
-            context.fill();
-
-            // Draw background
-            context.beginPath();
-            context.moveTo(canvas.width / 2, canvas.height / 2);
-            context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, 0, Math.PI * 2, false);
-            context.fillStyle = options.background;
-            context.fill();
-
-            // Draw pie
-            if (percentage > 0) {
+                // Draw shadow
                 context.beginPath();
                 context.moveTo(canvas.width / 2, canvas.height / 2);
-                context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, (-0.5) * Math.PI, (-0.5 + 2 * percentage / 100) * Math.PI, false);
-                context.lineTo(canvas.width / 2, canvas.height / 2);
-                context.fillStyle = options.color;
+                context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2), 0, Math.PI * 2, false);
+                context.fillStyle = options.shadow;
                 context.fill();
-            }
 
-            if (context) {
+                // Draw background
+                context.beginPath();
+                context.moveTo(canvas.width / 2, canvas.height / 2);
+                context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, 0, Math.PI * 2, false);
+                context.fillStyle = options.background;
+                context.fill();
+
+                // Draw pie
+                if (percentage > 0) {
+                    context.beginPath();
+                    context.moveTo(canvas.width / 2, canvas.height / 2);
+                    context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, (-0.5) * Math.PI, (-0.5 + 2 * percentage / 100) * Math.PI, false);
+                    context.lineTo(canvas.width / 2, canvas.height / 2);
+                    context.fillStyle = options.color;
+                    context.fill();
+                }
+
                 setFaviconTag(canvas.toDataURL());
             }
         };
@@ -129,12 +129,10 @@
     };
 
     var updateTitle = function(percentage) {
-        if (options.fallback) {
-            if (percentage > 0) {
-                document.title = '(' + percentage + '%) ' + originalTitle;
-            } else {
-                document.title = originalTitle;
-            }
+        if (percentage > 0) {
+            document.title = '(' + percentage + '%) ' + originalTitle;
+        } else {
+            document.title = originalTitle;
         }
     };
 
