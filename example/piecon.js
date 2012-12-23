@@ -20,6 +20,7 @@
         shadow: '#fff',
         fallback: false
     };
+    var retina = !! (window.devicePixelRatio);
 
     var ua = (function () {
         var agent = navigator.userAgent.toLowerCase();
@@ -73,8 +74,13 @@
     var getCanvas = function () {
         if (!canvas) {
             canvas = document.createElement("canvas");
-            canvas.width = 16;
-            canvas.height = 16;
+            if (retina) {
+                canvas.width = 32;
+                canvas.height = 32;
+            } else {
+                canvas.width = 16;
+                canvas.height = 16;
+            }
         }
 
         return canvas;
@@ -89,7 +95,7 @@
         var faviconImage = new Image();
         faviconImage.onload = function() {
             if (context) {
-                context.clearRect(0, 0, 16, 16);
+                context.clearRect(0, 0, canvas.width, canvas.height);
 
                 // Draw shadow
                 context.beginPath();
