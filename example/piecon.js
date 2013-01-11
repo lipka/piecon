@@ -49,13 +49,9 @@
     };
 
     var removeFaviconTag = function() {
-        var links = document.getElementsByTagName('link');
-        var head = document.getElementsByTagName('head')[0];
-
-        for (var i = 0, l = links.length; i < l; i++) {
-            if (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon') {
-                head.removeChild(links[i]);
-            }
+        var link = getFaviconTag();
+        if (link) {
+          link.parentNode.removeChild(link);
         }
     };
 
