@@ -20,7 +20,8 @@
         shadow: '#fff',
         fallback: false
     };
-    var retina = !! (window.devicePixelRatio);
+
+    var isRetina = window.devicePixelRatio > 1;
 
     var ua = (function () {
         var agent = navigator.userAgent.toLowerCase();
@@ -74,7 +75,7 @@
     var getCanvas = function () {
         if (!canvas) {
             canvas = document.createElement("canvas");
-            if (retina) {
+            if (isRetina) {
                 canvas.width = 32;
                 canvas.height = 32;
             } else {
@@ -163,7 +164,7 @@
         }
 
         if (!isNaN(parseFloat(percentage)) && isFinite(percentage)) {
-            if (!getCanvas().getContext || browser.ie || browser.safari || options.fallback == true) {
+            if (!getCanvas().getContext || browser.ie || browser.safari || options.fallback === true) {
                 // Fallback to updating the browser title if unsupported
                 return updateTitle(percentage);
             } else if (options.fallback === 'force') {

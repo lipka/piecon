@@ -1,8 +1,8 @@
 # Piecon
 
-Pie charts in your favicon!
+Pie charts in your favicon! A tiny javascript library for dynamically generating progress pie charts in your favicons.
 
-A tiny javascript library for dynamically generating progress pie charts in your favicons.
+Now with retina support!
 
 <p align="center"><img src="https://github.com/lipka/piecon/blob/master/example/screenshot.png?raw=true"></p>
 
@@ -43,14 +43,16 @@ Currently the library falls back to title updates for the following browsers:
 * Internet Explorer 9
 * Safari 5+
 
+Piecon is retina compatible so you can enjoy pixel-perfect crisp graphics.
+
 ## License
 
 Licensed under the [MIT license](http://en.wikipedia.org/wiki/MIT_License).
 
 ## Credits
 
-Piecon was inspired by [Tinycon](https://github.com/tommoor/tinycon).
+Piecon was inspired by Tom's [Tinycon](https://github.com/tommoor/tinycon).
 
-## An Lipka project
+## A Lipka project
 
-Made by yours truly - [@lipka](https://github.com/lipka).
+Made by [@lipka](https://github.com/lipka).
