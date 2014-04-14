@@ -90,7 +90,7 @@
     var drawFavicon = function(percentage) {
         var canvas = getCanvas();
         var context = canvas.getContext("2d");
-        var percentage = percentage || 0;
+        percentage = percentage || 0;
         var src = currentFavicon;
 
         var faviconImage = new Image();
