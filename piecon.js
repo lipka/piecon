@@ -90,49 +90,38 @@
     var drawFavicon = function(percentage) {
         var canvas = getCanvas();
         var context = canvas.getContext("2d");
+
         percentage = percentage || 0;
-        var src = currentFavicon;
 
-        var faviconImage = new Image();
-        faviconImage.onload = function() {
-            if (context) {
-                context.clearRect(0, 0, canvas.width, canvas.height);
+        if (context) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
 
-                // Draw shadow
+            // Draw shadow
+            context.beginPath();
+            context.moveTo(canvas.width / 2, canvas.height / 2);
+            context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2), 0, Math.PI * 2, false);
+            context.fillStyle = options.shadow;
+            context.fill();
+
+            // Draw background
+            context.beginPath();
+            context.moveTo(canvas.width / 2, canvas.height / 2);
+            context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, 0, Math.PI * 2, false);
+            context.fillStyle = options.background;
+            context.fill();
+
+            // Draw pie
+            if (percentage > 0) {
                 context.beginPath();
                 context.moveTo(canvas.width / 2, canvas.height / 2);
-                context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2), 0, Math.PI * 2, false);
-                context.fillStyle = options.shadow;
+                context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, (-0.5) * Math.PI, (-0.5 + 2 * percentage / 100) * Math.PI, false);
+                context.lineTo(canvas.width / 2, canvas.height / 2);
+                context.fillStyle = options.color;
                 context.fill();
-
-                // Draw background
-                context.beginPath();
-                context.moveTo(canvas.width / 2, canvas.height / 2);
-                context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, 0, Math.PI * 2, false);
-                context.fillStyle = options.background;
-                context.fill();
-
-                // Draw pie
-                if (percentage > 0) {
-                    context.beginPath();
-                    context.moveTo(canvas.width / 2, canvas.height / 2);
-                    context.arc(canvas.width / 2, canvas.height / 2, Math.min(canvas.width / 2, canvas.height / 2) - 2, (-0.5) * Math.PI, (-0.5 + 2 * percentage / 100) * Math.PI, false);
-                    context.lineTo(canvas.width / 2, canvas.height / 2);
-                    context.fillStyle = options.color;
-                    context.fill();
-                }
-
-                setFaviconTag(canvas.toDataURL());
             }
-        };
 
-        // allow cross origin resource requests if the image is not a data:uri
-        // as detailed here: https://github.com/mrdoob/three.js/issues/1305
-        if (!src.match(/^data/)) {
-            faviconImage.crossOrigin = 'anonymous';
+            setFaviconTag(canvas.toDataURL());
         }
-
-        faviconImage.src = src;
     };
 
     var updateTitle = function(percentage) {
