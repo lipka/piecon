@@ -1,0 +1,17 @@
+{
+  "name": "piecon",
+  "version": "0.3.0",
+  "description": "Dynamic pie charts in your favicon",
+  "author": "Lukas Lipka <lukaslipka@gmail.com> (http://lukaslipka.com)",
+  "main": "./piecon.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lipka/piecon.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0"
+  }
+}
