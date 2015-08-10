@@ -3,7 +3,7 @@
 //
 // https://github.com/lipka/piecon
 //
-// Copyright (c) 2012 Lukas Lipka <lukaslipka@gmail.com>. All rights reserved.
+// Copyright (c) 2015 Lukas Lipka <lukaslipka@gmail.com>. All rights reserved.
 //
 
 (function(){
