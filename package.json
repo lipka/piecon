@@ -1,6 +1,6 @@
 {
   "name": "piecon",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Dynamic pie charts in your favicon",
   "author": "Lukas Lipka <lukaslipka@gmail.com> (http://lukaslipka.com)",
   "main": "./piecon.js",
