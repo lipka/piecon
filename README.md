@@ -53,6 +53,3 @@ Licensed under the [MIT license](http://en.wikipedia.org/wiki/MIT_License).
 
 Piecon was inspired by Tom's [Tinycon](https://github.com/tommoor/tinycon).
 
-## A Lipka project
-
-Made by [@lipka](https://github.com/lipka).
