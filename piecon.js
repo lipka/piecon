@@ -178,5 +178,12 @@
     };
 
     Piecon.setOptions(defaults);
-    window.Piecon = Piecon;
+
+    if(typeof define === 'function' && define.amd) {
+        define(Piecon);
+    } else if (typeof module !== 'undefined') {
+        module.exports = Piecon;
+    } else {
+        window.Piecon = Piecon;
+    }
 })();
