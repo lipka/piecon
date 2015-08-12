@@ -42,7 +42,7 @@
         var links = document.getElementsByTagName('link');
 
         for (var i = 0, l = links.length; i < l; i++) {
-            if (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon') {
+            if (typeof links[i] !== "undefined" && links[i] !== null && (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon')) {
                 return links[i];
             }
         }
@@ -55,7 +55,7 @@
         var head = document.getElementsByTagName('head')[0];
 
         for (var i = 0, l = links.length; i < l; i++) {
-            if (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon') {
+            if (typeof links[i] !== "undefined" && links[i] !== null && (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon')) {
                 head.removeChild(links[i]);
             }
         }
