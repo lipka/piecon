@@ -57,6 +57,7 @@
         for (var i = 0, l = links.length; i < l; i++) {
             if (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon') {
                 head.removeChild(links[i]);
+                break;
             }
         }
     };
