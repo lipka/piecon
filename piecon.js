@@ -51,7 +51,8 @@
     };
 
     var removeFaviconTag = function() {
-        var links = document.getElementsByTagName('link');
+        // Removed link element will not exist in Nodelist
+        var links = Array.prototype.slice.call(document.getElementsByTagName('link'));
         var head = document.getElementsByTagName('head')[0];
 
         for (var i = 0, l = links.length; i < l; i++) {
