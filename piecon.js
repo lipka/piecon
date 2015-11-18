@@ -54,7 +54,7 @@
         var links = document.getElementsByTagName('link');
         var head = document.getElementsByTagName('head')[0];
 
-        for (var i = 0, l = links.length; i < l; i++) {
+        for (var i = 0; i < links.length; i++) {
             if (links[i].getAttribute('rel') === 'icon' || links[i].getAttribute('rel') === 'shortcut icon') {
                 head.removeChild(links[i]);
             }
