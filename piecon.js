@@ -51,7 +51,7 @@
     };
 
     var removeFaviconTag = function() {
-        var links = document.getElementsByTagName('link');
+        var links = Array.prototype.slice.call(document.getElementsByTagName('link'), 0);
         var head = document.getElementsByTagName('head')[0];
 
         for (var i = 0, l = links.length; i < l; i++) {
