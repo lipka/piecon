@@ -88,7 +88,7 @@
     };
 
     var drawFavicon = function(percentage) {
-        var canvas = getCanvas();
+        canvas = getCanvas();
         var context = canvas.getContext("2d");
 
         percentage = percentage || 0;
