@@ -13,6 +13,7 @@
     var originalFavicon = null;
     var originalTitle = null;
     var canvas = null;
+    var dataUrlCache = {};
     var options = {};
     var defaults = {
         color: '#ff0084',
@@ -88,6 +89,13 @@
     };
 
     var drawFavicon = function(percentage) {
+
+        if (options.useCache) {
+            if (percentage in dataUrlCache) {
+                return setFaviconTag(dataUrlCache[percentage]);
+            }
+        }
+
         var canvas = getCanvas();
         var context = canvas.getContext('2d');
 
@@ -120,7 +128,8 @@
                 context.fill();
             }
 
-            setFaviconTag(canvas.toDataURL());
+            dataUrlCache[percentage] = canvas.toDataURL();
+            setFaviconTag(dataUrlCache[percentage]);
         }
     };
 
@@ -175,6 +184,11 @@
             currentFavicon = originalFavicon;
             setFaviconTag(currentFavicon);
         }
+    };
+
+    Piecon.destroy = function(){
+        Piecon.reset();
+        dataUrlCache = {};
     };
 
     Piecon.setOptions(defaults);
