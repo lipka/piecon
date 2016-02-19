@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+    <title>Piecon / Pie charts in your favicon!</title>
+    <link rel="icon" href="favicon.ico" />
+    <script src="../piecon.js"></script>
+    <script>
+        (function(){
+            var count = 0;
+            Piecon.setOptions({fallback: 'force', useCache: true});
+            setInterval(function(){
+                if (++count > 100) { count = 0; }
+                Piecon.setProgress(count);
+            }, 250);
+        })();
+    </script>
+</head>
+<body>
+<div id="container">
+    <h1>Piecon</h1>
+    <p>A <a href="https://github.com/lipka">@lipka</a> production</p>
+</div>
+</body>

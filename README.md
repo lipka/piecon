@@ -17,6 +17,8 @@ Piecon.setProgress(12);
 Piecon.setProgress(25);
 ...
 Piecon.reset();
+...
+Piecon.destroy(); // If you care about performance and use `useCache` option, use it instead of `Piecon.reset();`
 ```
 
 ### Options
@@ -26,7 +28,8 @@ Piecon.setOptions({
   color: '#ff0084', // Pie chart color
   background: '#bbb', // Empty pie chart color
   shadow: '#fff', // Outer ring color
-  fallback: false // Toggles displaying percentage in the title bar (possible values - true, false, 'force')
+  fallback: false, // Toggles displaying percentage in the title bar (possible values - true, false, 'force')
+  useCache: false // If you want to keep animation with long-loop, make it true can give you high-performance
 });
 ```
 
