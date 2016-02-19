@@ -74,7 +74,7 @@
 
     var getCanvas = function () {
         if (!canvas) {
-            canvas = document.createElement("canvas");
+            canvas = document.createElement('canvas');
             if (isRetina) {
                 canvas.width = 32;
                 canvas.height = 32;
@@ -89,7 +89,7 @@
 
     var drawFavicon = function(percentage) {
         var canvas = getCanvas();
-        var context = canvas.getContext("2d");
+        var context = canvas.getContext('2d');
 
         percentage = percentage || 0;
 
