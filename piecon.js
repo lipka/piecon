@@ -126,7 +126,7 @@
 
     var updateTitle = function(percentage) {
         if (percentage > 0) {
-            document.title = '(' + percentage + '%) ' + originalTitle;
+            document.title = '(' + percentage + '%) ';
         } else {
             document.title = originalTitle;
         }
@@ -167,7 +167,7 @@
     };
 
     Piecon.reset = function() {
-        if (originalTitle) {
+        if (!originalTitle) {
             document.title = originalTitle;
         }
 
