@@ -6,7 +6,7 @@ Now with retina support!
 
 <p align="center"><img src="https://github.com/lipka/piecon/blob/master/example/screenshot.png?raw=true"></p>
 
-See the [live demo here](http://lipka.github.com/piecon/).
+See the [live demo here](http://lipka.github.io/piecon/).
 
 ## Documentation
 
